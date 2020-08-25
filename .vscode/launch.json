@@ -1,0 +1,42 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "NPM Cukes",
+      "type": "node",
+      "request": "launch",
+      "console": "integratedTerminal",
+      "program": "${workspaceRoot}/node_modules/cucumber/bin/cucumber-js",
+      "args": [
+        "features/",
+        "-f",
+        "json:reports/cucumber_report.json",
+        // "--tags","@NameAPIBeingTested",
+        "--tags",
+        "@Visual",
+        "--browser",
+        "chrome",
+        // "--env","rc",
+        "--width",
+        "1280",
+        "--height",
+        "1000"
+        // "--grid","k8s",
+        // "--stack","rche",
+        // "--compare",//"--capture",
+        // "--timeout","180"
+      ]
+    },
+    {
+      "name": "NoDebug",
+      "type": "node",
+      "request": "launch",
+      "console": "integratedTerminal",
+      "program": "${workspaceFolder}/features/support/emailReports.js",
+      "args": ["--NoDebug", "-e", "-f", "json:reports/cucumber_report.json"]
+    }
+  ]
+}

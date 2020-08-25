@@ -1,0 +1,34 @@
+{
+  "username": "admin@courseware.com",
+  "password": "Passw0rd!",
+  "jwt_payload": {
+    "sub": "0053B000001YyTMQA0",
+    "user_id": "0053B000001YyTMQA0",
+    "Id": "0053B000001YyTMQA0",
+    "FirstName": "Courseware",
+    "LastName": "Admin",
+    "email": "admin@courseware.com",
+    "Email": "admin@courseware.com",
+    "C_Acct__c": "C02777",
+    "OptIn__c": false,
+    "LastModifiedDate": "2020-03-02T17:18:29.820Z",
+    "CreatedDate": "2018-10-22T19:24:36.000Z",
+    "School_or_Institution__c": "Courseware Team",
+    "email_verified": "",
+    "nickname": "t3grfl7ooo25q5hg6slupbfus",
+    "name": "Courseware Admin",
+    "type": "Student",
+    "auth0_id": "",
+    "app_metadata": {
+      "admin": true,
+      "support": false
+    },
+    "user_metadata": {
+      "cAccount": "C02777",
+      "institution_id": "",
+      "name": "Courseware Admin",
+      "first_name": "Courseware",
+      "last_name": "Admin"
+    }
+  }
+}

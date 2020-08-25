@@ -1,0 +1,13 @@
+{
+  "emailReport": false,
+  "recepients": "thomas.dsilva@macmillan.com",
+  "subject": "Cucumber Test Report",
+  "user": {
+    "id": "701768719333-0f12h7i269l7n2odh5ne80u5mdkth618.apps.googleusercontent.com",
+    "secret": "ADEpn82HAOHH9_8lqzpwRIXd",
+    "username": "thomas.dsilva.contractor@macmillan.com",
+    "refreshToken": "1/3ayBIUgNJWANUL1-rISK50oaD6VlrWuk4XvzG03kzt9rO_ekPBdfvgDHcXLpFiNh",
+    "accessToken": "ya29.GltuByf5jWOhzFHv_lbBLQvIahPif5RqTtn_r9TMh7BmFxwaDwn2WJz_zyBGvuVbaGRfElVNYrkqaKDfe9MHic72Mc9W66OeFa-LikboAx0eoZxyq-H1cGT1LbFU1",
+    "sender": "thomas.dsilva.contractor@macmillan.com"
+  }
+}

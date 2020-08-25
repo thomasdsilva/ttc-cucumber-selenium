@@ -1,0 +1,8 @@
+{
+  "method": "DELETE",
+  "endpoint": "/loadtest/user/userId/assignment",
+  "json": true,
+  "body": {
+    "assignmentList": [2421441, 2421442]
+  }
+}

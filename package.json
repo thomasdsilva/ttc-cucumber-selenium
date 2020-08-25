@@ -1,0 +1,59 @@
+{
+  "requires": true,
+  "lockfileVersion": 1,
+  "scripts": {
+    "email": "node ./features/support/emailReports.js",
+    "sample": "node ./node_modules/cucumber/bin/cucumber-js features/ -f json:reports/cucumber_report.json --tags '(@Course and @Assessment) and (not @wip)'",
+    "run": "node ./node_modules/cucumber/bin/cucumber-js features/ -f json:reports/cucumber_report.json --tags '(@Course and @Assessment) and (not @wip)'",
+    "test": "node ./node_modules/cucumber/bin/cucumber-js features/ASSESSMENT/tests/sac/multimodule-hw.feature -f json:reports/cucumber_report.json"
+  },
+  "engines": {
+    "node": ">=10"
+  },
+  "dependencies": {
+    "@nodebug/config": "1.0.0",
+    "@nodebug/emailer": "0.0.13",
+    "@nodebug/logger": "1.0.0",
+    "@nodebug/restapi": "0.0.2",
+    "@nodebug/selenium": "0.0.4",
+    "@nodebug/testrail-uploader": "1.0.3",
+    "@nodebug/visual": "0.0.7",
+    "axe-webdriverjs": "latest",
+    "chai": "latest",
+    "chai-sorted": "latest",
+    "csvtojson": "latest",
+    "cucumber": "^6.0.5",
+    "faker": "latest",
+    "imap-simple": "latest",
+    "jsonfile": "latest",
+    "jsonwebtoken": "latest",
+    "lodash": "^4.17.19",
+    "mailparser": "^2.8.0",
+    "minimist": "latest",
+    "selenium-webdriver": "latest"
+  },
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb-base": "^14.1.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-prettier": "^3.1.3",
+    "gherkin-lint": "^4.1.2",
+    "husky": "4.2.5",
+    "lint-staged": "10.1.5",
+    "prettier": "^2.0.5"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{json,yaml,yml,md,sh,groovy}": [
+      "prettier --write"
+    ],
+    "*.{js,jsx,ts,tsx}": [
+      "eslint --fix"
+    ]
+  }
+}

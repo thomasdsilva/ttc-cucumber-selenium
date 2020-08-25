@@ -1,0 +1,54 @@
+{
+  "no-files-without-scenarios": "on",
+  "no-unnamed-features": "on",
+  "no-unnamed-scenarios": "on",
+  "no-dupe-scenario-names": ["on", "in-feature"],
+  "no-dupe-feature-names": "on",
+  "no-partially-commented-tag-lines": "on",
+  "no-trailing-spaces": "on",
+  "new-line-at-eof": ["on", "yes"],
+  "no-multiple-empty-lines": "on",
+  "no-empty-file": "on",
+  "no-scenario-outlines-without-examples": "on",
+  "name-length": ["on", { "Feature": 70, "Scenario": 100, "Step": 200 }],
+  "no-restricted-tags": ["on", { "tags": ["@watch", "@wip"] }],
+  "use-and": "on",
+  "no-duplicate-tags": "on",
+  "no-superfluous-tags": "on",
+  "no-homogenous-tags": "on",
+  "one-space-between-tags": "on",
+  "no-unused-variables": "on",
+  "no-background-only-scenario": "on",
+  "no-empty-background": "on",
+  "scenario-size": [
+    "on",
+    { "steps-length": { "Background": 15, "Scenario": 80 } }
+  ],
+  "no-restricted-patterns": [
+    "on",
+    {
+      "Global": ["^globally restricted pattern"],
+      "Feature": ["poor description", "validate", "verify"],
+      "Background": ["show last response", "a debugging step"],
+      "Scenario": ["show last response", "a debugging step"]
+    }
+  ],
+  "indentation": [
+    "on",
+    {
+      "Feature": 0,
+      "Background": 4,
+      "Scenario": 4,
+      "Step": 8,
+      "Examples": 4,
+      "example": 4,
+      "given": 8,
+      "when": 8,
+      "then": 12,
+      "and": 8,
+      "but": 8,
+      "feature tag": 0,
+      "scenario tag": 4
+    }
+  ]
+}

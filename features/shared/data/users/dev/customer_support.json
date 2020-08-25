@@ -1,0 +1,34 @@
+{
+  "username": "zilet@mail-point.net",
+  "password": "ABCabc@123",
+  "jwt_payload": {
+    "sub": "0053B000002ja4NQAQ",
+    "user_id": "0053B000002ja4NQAQ",
+    "Id": "0053B000002ja4NQAQ",
+    "FirstName": "cust",
+    "LastName": "Support",
+    "email": "zilet@mail-point.net",
+    "Email": "zilet@mail-point.net",
+    "C_Acct__c": "C02777",
+    "OptIn__c": true,
+    "LastModifiedDate": "2020-04-17T17:19:27.277Z",
+    "CreatedDate": "2019-07-15T18:47:26.000Z",
+    "School_or_Institution__c": "Macmillan Learning",
+    "email_verified": "",
+    "nickname": "4c044z4zcx4d3ccgnghi6vt8c",
+    "name": "cust Support",
+    "type": "Student",
+    "auth0_id": "",
+    "app_metadata": {
+      "admin": false,
+      "support": true
+    },
+    "user_metadata": {
+      "cAccount": "C02777",
+      "name": "cust Support",
+      "last_name": "Support",
+      "first_name": "cust",
+      "institution_id": "001i000000btYyyAAE"
+    }
+  }
+}
