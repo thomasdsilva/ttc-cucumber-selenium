@@ -10,6 +10,10 @@ const {
 const { takeScreenshot } = require('@nodebug/selenium/driver')
 const config = require('@nodebug/config')('cucumber')
 
+const options = require('@nodebug/config')('selenium')
+const driver = require('@nodebug/selenium/driver').getDriver()
+const Selenium = require('@nodebug/selenium')
+
 const { env } = config
 const stack = (() => {
   if (
@@ -45,6 +49,7 @@ function ThisWorld({ attach }) {
   setDefaultTimeout(10 * config.timeout * 1000)
   this.screenshots = config.screenshots
   this.attach = attach
+  this.browser = new Selenium(driver, options)
 }
 
 setWorldConstructor(ThisWorld)

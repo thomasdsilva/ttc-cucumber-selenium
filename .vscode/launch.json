@@ -16,7 +16,7 @@
         "json:reports/cucumber_report.json",
         // "--tags","@NameAPIBeingTested",
         "--tags",
-        "@Visual",
+        "@Instructor",
         "--browser",
         "chrome",
         // "--env","rc",
