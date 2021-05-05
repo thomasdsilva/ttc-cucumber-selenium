@@ -1,7 +1,5 @@
-const { Given, When } = require('cucumber')
-const { resetBrowser } = require('@nodebug/selenium/driver')
+const { Given } = require('cucumber')
 const _ = require('lodash')
-const { pages } = require('../pages/.page.js')
 
 // eslint-disable-next-line func-names
 Given('I login to GitHub as {string}', async function (userType) {
@@ -14,10 +12,4 @@ Given('I login to GitHub as {string}', async function (userType) {
   await this.browser.element('Username').write(user.username)
   await this.browser.element('Password').write(user.password)
   await this.browser.element('Sign in').below().element('Password').click()
-})
-
-When('I logout of GitHub', async () => {
-  await pages.profile.click('Summary')
-  await pages.profile.click('Sign Out')
-  await resetBrowser()
 })

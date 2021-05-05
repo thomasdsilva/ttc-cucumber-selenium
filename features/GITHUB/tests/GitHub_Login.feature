@@ -16,6 +16,7 @@ Feature: Login functonality in GitHub
     Scenario: Login as Instructor and Logout
         Given I login to GitHub as "instructor"
         Then Expected page "Account" should match actual
+        Then Expected "Header" should match actual
         And I logout of GitHub
 
     

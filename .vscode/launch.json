@@ -9,34 +9,28 @@
       "type": "node",
       "request": "launch",
       "console": "integratedTerminal",
-      "program": "${workspaceRoot}/node_modules/cucumber/bin/cucumber-js",
+      "program": "${workspaceRoot}/node_modules/.bin/cucumber-js",
       "args": [
         "features/",
         "-f",
         "json:reports/cucumber_report.json",
-        // "--tags","@NameAPIBeingTested",
         "--tags",
-        "@Instructor",
+        "@Visual",
+        "--env",
+        "prod",
         "--browser",
         "chrome",
-        // "--env","rc",
+        // "--stack","rche",
         "--width",
         "1280",
         "--height",
-        "1000"
+        "1000",
         // "--grid","k8s",
-        // "--stack","rche",
-        // "--compare",//"--capture",
-        // "--timeout","180"
+        // "--retry","3",
+        // // "-h",
+        "--capture",
+        "--compare"
       ]
-    },
-    {
-      "name": "NoDebug",
-      "type": "node",
-      "request": "launch",
-      "console": "integratedTerminal",
-      "program": "${workspaceFolder}/features/support/emailReports.js",
-      "args": ["--NoDebug", "-e", "-f", "json:reports/cucumber_report.json"]
     }
   ]
 }

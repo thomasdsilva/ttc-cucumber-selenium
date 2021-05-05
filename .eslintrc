@@ -23,6 +23,7 @@
         "code": 120,
         "comments": 180
       }
-    ]
+    ],
+    "func-names": "off"
   }
 }

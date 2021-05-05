@@ -1,6 +1,6 @@
 FROM node:10.15.3
 
-LABEL AUTHOR="Thomas DSilva (thomas.dsilva@ttcglobal.com)"
+LABEL AUTHOR="Thomas DSilva (thomas.dsilva.contractor@macmillan.com)"
 COPY ./ ./
 RUN mkdir /downloads
 RUN npm install
