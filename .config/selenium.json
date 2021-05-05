@@ -4,7 +4,7 @@
   "width": null,
   "headless": false,
   "downloadsPath": "./reports/downloads",
-  "timeout": 30,
+  "timeout": 5,
   "incognito": false,
   "grid": null,
   "grids": {

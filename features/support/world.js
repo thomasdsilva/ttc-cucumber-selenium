@@ -7,7 +7,6 @@ const {
   setDefaultTimeout,
   setDefinitionFunctionWrapper,
 } = require('cucumber')
-const { takeScreenshot } = require('@nodebug/selenium/driver')
 const config = require('@nodebug/config')('cucumber')
 
 const { env } = config
@@ -45,6 +44,7 @@ function ThisWorld({ attach }) {
   setDefaultTimeout(10 * config.timeout * 1000)
   this.screenshots = config.screenshots
   this.attach = attach
+  this.screenshot = null
 }
 
 setWorldConstructor(ThisWorld)
@@ -60,7 +60,8 @@ setDefinitionFunctionWrapper(
         this.screenshots.toLowerCase().includes('always')
       ) {
         try {
-          await this.attach(await takeScreenshot(), 'image/png')
+          await this.attach(await this.browser.screenshot(), 'image/png')
+          await this.attach(await this.browser.screenshot(), 'image/png')
         } catch (ex) {
           log.error(ex)
         }

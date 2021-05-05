@@ -1,8 +1,7 @@
-const stepsPath = `${process.cwd()}/features/shared/pages/`
+const stepsPath = `${process.cwd()}/features/GITHUB/pages/`
 const PageObject = require('@nodebug/selenium/PageObject')
 
-let pages = {
-  login: new PageObject('login.json', stepsPath),
+const pages = {
   profile: new PageObject('profile.json', stepsPath),
 }
 
