@@ -11,13 +11,6 @@
     "node": ">=10"
   },
   "dependencies": {
-    "@nodebug/config": "1.0.0",
-    "@nodebug/emailer": "^1.0.0",
-    "@nodebug/logger": "1.0.0",
-    "@nodebug/restapi": "0.0.2",
-    "@nodebug/selenium": "1.9.3",
-    "@nodebug/testrail-uploader": "1.0.3",
-    "@nodebug/visual": "1.0.0",
     "chai": "^4.3.3",
     "chai-sorted": "latest",
     "csvtojson": "latest",
@@ -29,7 +22,7 @@
     "lodash": "^4.17.21",
     "mailparser": "^2.8.1",
     "minimist": "latest",
-    "selenium-webdriver": "^4.0.0-beta.2"
+    "selenium-webdriver": "^4.8.1"
   },
   "devDependencies": {
     "eslint": "^6.8.0",
