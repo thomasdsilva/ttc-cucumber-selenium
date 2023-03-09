@@ -11,6 +11,11 @@
     "node": ">=10"
   },
   "dependencies": {
+    "@nodebug/config": "1.0.0",
+    "@nodebug/emailer": "^1.0.0",
+    "@nodebug/logger": "1.0.0",
+    "@nodebug/restapi": "0.0.2",
+    "@nodebug/testrail-uploader": "1.0.3",
     "chai": "^4.3.3",
     "chai-sorted": "latest",
     "csvtojson": "latest",
