@@ -1,10 +1,12 @@
-const { Before } = require('cucumber')
-const options = require('@nodebug/config')('selenium')
-const { open, getDriver } = require('@nodebug/selenium/driver')
+const { Before, BeforeStep } = require('@cucumber/cucumber')
 const Driver = require('@nodebug/selenium')
+const { log } = require('@nodebug/logger')
 
 Before(async function () {
-  await open()
-  const driver = await getDriver()
-  this.browser = new Driver(driver, options)
+  this.browser = new Driver()
+  await this.browser.start()
+})
+
+BeforeStep(async function (event) {
+  log.debug(event.pickleStep.text)
 })

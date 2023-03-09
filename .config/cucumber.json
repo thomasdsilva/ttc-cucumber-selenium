@@ -2,5 +2,6 @@
   "env": "prod",
   "stack": "",
   "screenshots": "onfail",
-  "timeout": 180
+  "timeout": 900,
+  "apitimeout": 180
 }

@@ -9,28 +9,22 @@
       "type": "node",
       "request": "launch",
       "console": "integratedTerminal",
-      "program": "${workspaceRoot}/node_modules/.bin/cucumber-js",
+      "program": "${workspaceRoot}/node_modules/@cucumber/cucumber/bin/cucumber-js",
       "args": [
-        "features/",
+        "--publish-quiet",
         "-f",
         "json:reports/cucumber_report.json",
+        "./features/",
         "--tags",
-        "@Visual",
-        "--env",
-        "prod",
-        "--browser",
-        "chrome",
-        // "--stack","rche",
-        "--width",
-        "1280",
-        "--height",
-        "1000",
-        // "--grid","k8s",
-        // "--retry","3",
-        // // "-h",
-        "--capture",
-        "--compare"
-      ]
+        "@Instructor",
+      ],
+      "env": {
+        "env": "staging",
+        "screenshots": "onfail",
+        "video": "true",
+        "NODE_ENV": "local",
+        "timeout": "10",
+      }
     }
   ]
 }

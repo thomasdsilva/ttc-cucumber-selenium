@@ -1,13 +1,11 @@
 const { readdirSync } = require('fs')
 const path = require('path')
 const { readFileSync } = require('jsonfile')
-const { log } = require('@nodebug/logger')
-const {
-  setWorldConstructor,
-  setDefaultTimeout,
-  setDefinitionFunctionWrapper,
-} = require('cucumber')
+const { setWorldConstructor } = require('@cucumber/cucumber')
 const config = require('@nodebug/config')('cucumber')
+const { setDefaultTimeout } = require('@cucumber/cucumber')
+
+setDefaultTimeout(config.timeout * 1000)
 
 const { env } = config
 const stack = (() => {
@@ -24,7 +22,17 @@ const stack = (() => {
 
 const users = () => {
   const that = {}
-  const folder = `${process.cwd()}/features/shared/data/users/${env}`
+  const folder = `${process.cwd()}/features/shared/users/${env}`
+  readdirSync(folder).forEach((file) => {
+    const filepath = `${folder}/${file}`
+    that[`${path.parse(filepath).name}`] = readFileSync(filepath)
+  })
+  return that
+}
+
+const urls = () => {
+  const that = {}
+  const folder = `${process.cwd()}/features/shared/urls`
   readdirSync(folder).forEach((file) => {
     const filepath = `${folder}/${file}`
     that[`${path.parse(filepath).name}`] = readFileSync(filepath)
@@ -35,36 +43,14 @@ const users = () => {
 function ThisWorld({ attach }) {
   this.environment = env
   this.stack = stack
-  this.urls = readFileSync(`${process.cwd()}/features/.urls/web.json`)
-  this.endpoints = readFileSync(`${process.cwd()}/features/.urls/api.json`)
-  this.users = users()
   this.url = null
-  this.apiserver = null
+  this.urls = urls()
+  this.users = users()
   this.data = new Map()
-  setDefaultTimeout(10 * config.timeout * 1000)
   this.screenshots = config.screenshots
   this.attach = attach
   this.screenshot = null
+  setDefaultTimeout(config.timeout * 1000)
 }
 
 setWorldConstructor(ThisWorld)
-
-setDefinitionFunctionWrapper(
-  (fn) =>
-    // eslint-disable-next-line func-names
-    async function () {
-      // eslint-disable-next-line prefer-rest-params
-      await fn.apply(this, arguments)
-      if (
-        this.screenshots !== undefined &&
-        this.screenshots.toLowerCase().includes('always')
-      ) {
-        try {
-          await this.attach(await this.browser.screenshot(), 'image/png')
-          await this.attach(await this.browser.screenshot(), 'image/png')
-        } catch (ex) {
-          log.error(ex)
-        }
-      }
-    },
-)

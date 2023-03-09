@@ -1,49 +1,44 @@
-const { After } = require('cucumber')
-const { RestObject } = require('@nodebug/restapi')
-const { compressBase64 } = require('@nodebug/selenium/extras/imagecompress')
+const { After, AfterStep, Status } = require('@cucumber/cucumber')
+const { compressBase64 } = require('@nodebug/selenium/')
+const { log } = require('@nodebug/logger')
 
-const specpath = '../GITHUB/apispecs'
-
-// eslint-disable-next-line func-names
-After('@delete-Courses', function () {
-  const spec = `${specpath}/clear-cache.json`
-  const jwt = this.users.admin_1.jwt_payload
-
-  // eslint-disable-next-line func-names
-  Object.values(this.data).forEach(function (course) {
-    const api = new RestObject(spec)
-    api.setCookie(jwt)
-    api.spec.endpoint = api.spec.endpoint.replace('{id}', course.id)
-    api.DELETE(this.apiserver)
-  })
+AfterStep(async function ({ result }) {
+  if (
+    (this.screenshots !== undefined &&
+      this.screenshots.toLowerCase().includes('always')) ||
+    (this.screenshots !== undefined &&
+      this.screenshots.toLowerCase().includes('onfail') &&
+      result.status === Status.FAILED)
+  ) {
+    try {
+      await this.attach(await this.browser.screenshot(), 'image/png')
+    } catch (ex) {
+      log.error(`Unrecognized error occured while taking screenshot of browser. ${err}`)
+    }
+  }
 })
 
-// eslint-disable-next-line func-names
-// After('@instructor-copyMasterSection-delete-course', async function () {
-//   await this.browser.reset()
-
-//   const course = this.data.get('section')
-//   await pages.createCourse.assertElementExists('courseCard', course)
-//   const elements = await pages.createCourse.getWebElements('courseCard', course)
-//   for (let i = 0; i < elements.length; i++) {
-//     // eslint-disable-next-line no-await-in-loop
-//     await deleteCourseFromCourseList(course)
-//   }
-//   return true
-// })
-
-//* **********  this After always needs to be at the bottom of this file           ***********//
-// eslint-disable-next-line func-names
-After(async function (scenario) {
-  if (
-    this.screenshots.toLowerCase().includes('onfail') &&
-    scenario.result.status.toLowerCase().includes('fail')
-  ) {
-    await this.browser.screenshot()
-    await this.attach(
-      await compressBase64(await this.browser.screenshot()),
-      'image/png',
-    )
+After({name: 'Close Browser'}, async function () {
+  try {
+    return this.browser.close()
+  } catch (err) {
+    log.error(`Unrecognized error occured while closing browser. ${err}`)
   }
-  return this.browser.close()
+})
+
+After({name: 'Attach Screenshot'}, async function (scenario) {
+  try {
+    if (
+      this.screenshots.toLowerCase().includes('onfail') &&
+      scenario.result.status.toLowerCase().includes('fail')
+    ) {
+      await this.browser.screenshot()
+      await this.attach(
+        await compressBase64(await this.browser.screenshot()),
+        'image/png',
+      )
+    }
+  } catch (err) {
+    log.error(`Unrecognized error occured while taking screenshot of browser. ${err}`)
+  }
 })

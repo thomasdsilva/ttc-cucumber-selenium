@@ -1,7 +1,6 @@
-const { When } = require('cucumber')
-const { pages } = require('../pages/pages.js')
+const { When } = require('@cucumber/cucumber')
 
-When('I logout of GitHub', async () => {
-  await pages.profile.click('Summary')
-  await pages.profile.click('Sign Out')
+When('I logout of GitHub', async function () {
+  await this.browser.exact().element('Summary').click()
+  await this.browser.exact().element('Sign Out').click()
 })

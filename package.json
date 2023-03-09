@@ -11,34 +11,26 @@
     "node": ">=10"
   },
   "dependencies": {
-    "@nodebug/config": "1.0.0",
-    "@nodebug/emailer": "^1.0.0",
-    "@nodebug/logger": "1.0.0",
-    "@nodebug/restapi": "0.0.2",
-    "@nodebug/testrail-uploader": "1.0.3",
-    "chai": "^4.3.3",
-    "chai-sorted": "latest",
-    "csvtojson": "latest",
-    "cucumber": "^6.0.5",
-    "faker": "^5.4.0",
-    "imap-simple": "latest",
-    "jsonfile": "latest",
-    "jsonwebtoken": "latest",
-    "lodash": "^4.17.21",
-    "mailparser": "^2.8.1",
-    "minimist": "latest",
-    "selenium-webdriver": "^4.8.1"
+    "@cucumber/cucumber": "9.3.0",
+    "@faker-js/faker": "8.0.2",
+    "@nodebug/config": "2.1.0",
+    "@nodebug/logger": "1.1.0",
+    "@nodebug/selenium": "4.0.0",
+    "axios": "1.4.0",
+    "chai": "4.3.7",
+    "cucumber-html-reporter": "7.1.1",
+    "jsonfile": "6.1.0",
+    "lodash": "4.17.21"
   },
   "devDependencies": {
-    "eslint": "^6.8.0",
-    "eslint-config-airbnb-base": "^14.2.1",
-    "eslint-config-prettier": "^6.15.0",
-    "eslint-plugin-import": "^2.22.1",
-    "eslint-plugin-prettier": "^3.3.1",
-    "gherkin-lint": "^4.2.1",
-    "husky": "4.2.5",
-    "lint-staged": "10.1.5",
-    "prettier": "^2.2.1"
+    "eslint": "8.45.0",
+    "eslint-config-airbnb-base": "15.0.0",
+    "eslint-config-prettier": "8.9.0",
+    "eslint-plugin-import": "2.28.0",
+    "eslint-plugin-prettier": "5.0.0",
+    "husky": "8.0.3",
+    "lint-staged": "13.2.3",
+    "prettier": "3.0.0"
   },
   "husky": {
     "hooks": {
@@ -46,11 +38,11 @@
     }
   },
   "lint-staged": {
-    "*.{json,yaml,yml,md,sh,groovy}": [
-      "prettier --write"
-    ],
     "*.{js,jsx,ts,tsx}": [
       "eslint --fix"
+    ],
+    "*.{json,yaml,yml,md,sh,groovy}": [
+      "prettier --write"
     ]
   }
 }

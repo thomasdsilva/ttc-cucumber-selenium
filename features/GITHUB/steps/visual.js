@@ -1,4 +1,4 @@
-const { After, Then } = require('cucumber')
+const { After, Then } = require('@cucumber/cucumber')
 const { assert } = require('chai')
 
 // eslint-disable-next-line func-names

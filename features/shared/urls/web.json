@@ -1,0 +1,10 @@
+{
+    "Outlook": {
+        "staging": "https://github.com/api",
+        "prod": "https://outlook.office.com/mail/"
+    },
+    "GitHub": {
+        "staging": "https://github.com/api",
+        "prod": "https://github.com/api"
+    }
+}

@@ -1,4 +1,4 @@
-const { When } = require('cucumber')
+const { When } = require('@cucumber/cucumber')
 
 When('I click on element having text {string}', async function (description) {
   await this.browser.element(description).click()
